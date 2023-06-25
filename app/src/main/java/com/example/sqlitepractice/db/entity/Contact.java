@@ -1,25 +1,36 @@
 package com.example.sqlitepractice.db.entity;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "contacts")
 public class Contact {
 
     //1. Constants of the databse
-    public static final String TABLE_NAME="contacts";
+    //public static final String TABLE_NAME="contacts";
+/*
     public static final String COLUMN_ID="contact_id";
     public static final String COLUMN_EMAIL="contact_email";
     public static final String COLUMN_NAME="column_name";
+*/
 
     //2. Variables
 
+    @ColumnInfo(name="contact_name")
     private String name;
+    @ColumnInfo(name="contact_email")
     private String email;
+    @ColumnInfo(name="contact_id")
+    @PrimaryKey(autoGenerate = true)
     private int id;
 
     //3. Constructors
 
 
-    public Contact() {
-        this.name = name;
-        this.email = email;
+    public Contact(String name, String email, int id) {
+        this.name = this.name;
+        this.email = this.email;
         this.id = id;
     }
 
@@ -50,6 +61,6 @@ public class Contact {
     }
 
     //SQL Query for creating the tables
-    public static final String CREATE_TABLE=" CREATE TABLE "+ TABLE_NAME +"("+ COLUMN_ID +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-            COLUMN_NAME+" TEXT,"+COLUMN_EMAIL+" DATETIME DEFAULT CURRENT_TIMESTAMP" + ")";
+/*    public static final String CREATE_TABLE=" CREATE TABLE "+ TABLE_NAME +"("+ COLUMN_ID +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+            COLUMN_NAME+" TEXT,"+COLUMN_EMAIL+" DATETIME DEFAULT CURRENT_TIMESTAMP" + ")";*/
 }
